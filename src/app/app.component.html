@@ -2,15 +2,20 @@
 <div class='main'>
   <h1>My To Do List</h1>
   <label for='addItemInput'>What would you like to do today?</label>
+
+  <h2>{{items.length}} <span *ngIf='items.length === 1; else elseBlock'>item</span>
+    <ng-template #elseBlock>Items</ng-template>
+  </h2>
   
+  <!-- Iterate over each item of the items array -->
   <ul>
-    <!-- Iterate over each item of the items array -->
     <li *ngFor='let item of items'>
-      {{item.description}}
+      <app-item (remove)='remove(item)' [item]='item'></app-item>
     </li>
   </ul>
 
   <!-- Add a new item on enter keypress -->
-  <input id='addItemInput' class='lg-text-input' #newItem placeholder='add an item' (keyup.enter)='addItem(newItem.value); newItem.value = "" ' />
+  <input id='addItemInput' class='lg-text-input' #newItem placeholder='add an item'
+    (keyup.enter)='addItem(newItem.value); newItem.value = "" ' />
   <button class='btn-primary' (click)='addItem(newItem.value); newItem.value=""; '>Add</button>
 </div>

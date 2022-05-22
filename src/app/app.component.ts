@@ -33,5 +33,6 @@ export class AppComponent {
 
   // -- Functions -----------------------------------------------------------------
   addItem(description: string) { this.allItems.unshift({ description, done: false/*by definition*/ }); }
-
+  remove(item: Item) { this.allItems.splice(this.allItems.indexOf(item), 1); }
+  
 }
