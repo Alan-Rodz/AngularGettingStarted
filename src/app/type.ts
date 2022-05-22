@@ -1,5 +1,2 @@
 // ********************************************************************************
-export interface Item {
-  description: string; 
-  done: boolean;
-}
+export interface Item { description: string;  done: boolean; }
