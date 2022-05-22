@@ -1,2 +1,5 @@
 // ********************************************************************************
-export const environment = { production: true };
+export interface Item {
+  description: string; 
+  done: boolean;
+}
