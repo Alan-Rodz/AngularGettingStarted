@@ -1,12 +1,16 @@
 <!-- ************************************************************************** -->
 <div class='main'>
   <h1>My To Do List</h1>
-  <h2>What would you like to do today?</h2>
-
+  <label for='addItemInput'>What would you like to do today?</label>
+  
   <ul>
     <!-- Iterate over each item of the items array -->
-    <li *ngFor="let item of items">
+    <li *ngFor='let item of items'>
       {{item.description}}
     </li>
   </ul>
+
+  <!-- Add a new item on enter keypress -->
+  <input id='addItemInput' class='lg-text-input' #newItem placeholder='add an item' (keyup.enter)='addItem(newItem.value); newItem.value = "" ' />
+  <button class='btn-primary' (click)='addItem(newItem.value)'>Add</button>
 </div>

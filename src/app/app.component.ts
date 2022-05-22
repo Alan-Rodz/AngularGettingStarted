@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Item } from './type';
+
 // ********************************************************************************
 // == Decorator ===================================================================
 /* selector: name of the css selector that you use in a template to instantiate the component */
@@ -9,17 +11,17 @@ import { Component } from '@angular/core';
 
 // == Class =======================================================================
 export class AppComponent { 
+  // -- Constant ------------------------------------------------------------------
   title = 'todoList'; 
-
   filter: 'all' | 'active' | 'done' = 'all';
-
-  allItems = [
+  allItems: Item[] = [
     { description: 'eat', done: true },
     { description: 'sleep', done: false },
     { description: 'play', done: false },
     { description: 'laugh', done: false },
   ];
 
+  // -- Getters -------------------------------------------------------------------
   get items() {
     if(this.filter === 'all') 
       return this.allItems;
@@ -28,4 +30,8 @@ export class AppComponent {
     /*return done items or outstanding items depending on how view is filtered*/
     return this.allItems.filter(item => this.filter === 'done' ? item.done : !item.done);
   }
+
+  // -- Functions -----------------------------------------------------------------
+  addItem(description: string) { this.allItems.unshift({ description, done: false/*by definition*/ }); }
+
 }
