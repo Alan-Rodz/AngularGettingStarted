@@ -22,3 +22,14 @@
 // == Components ==================================================================
 They are the building blocks of an Angular application. A component includes a 
 TypeScript class that has a @Component() decorator, an HTML template, and styles
+
+// == Building ====================================================================
+When you run the build command in the todo directory, the app compiles into an 
+output directory called dist
+
+The CLI compiles the app and puts the output in a new dist directory. The --prod 
+flag with ng build gets rid of stuff that isn't needed for production 
+
+To deploy the app you can copy the contents of the dist/project-name into the 
+web server. Since these files are static, you can host them on any web server 
+capable of serving files 
